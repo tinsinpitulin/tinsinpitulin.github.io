@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¿Quieres ser mi San Valentín?</title>
+    <style>
+        body {
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            text-align: center;
+            background: linear-gradient(to right, #ff758c, #ff7eb3);
+            padding: 50px;
+            color: white;
+            overflow: hidden; /* Evita que las imágenes se salgan de la pantalla */
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            display: inline-block;
+            animation: fadeIn 2s ease-in-out;
+            color: #ff4d4d;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.8); }
+            to { opacity: 1; transform: scale(1); }
+        }
+        h1 {
+            font-size: 32px;
+            text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.2);
+        }
+        .buttons, .options {
+            margin-top: 20px;
+        }
+        button {
+            font-size: 22px;
+            padding: 12px 30px;
+            margin: 10px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        #yes {
+            background-color: #ff4d4d;
+            color: white;
+            box-shadow: 0 4px 8px rgba(255, 77, 77, 0.4);
+        }
+        #yes:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 12px rgba(255, 77, 77, 0.6);
+        }
+        #no {
+            background-color: #cccccc;
+            color: black;
+            position: absolute;
+            transition: left 0.3s, top 0.3s;
+        }
+        .hearts {
+            font-size: 40px;
+            animation: float 1.5s infinite alternate;
+        }
+        @keyframes float {
+            from { transform: translateY(0); }
+            to { transform: translateY(-10px); }
+        }
+        .options {
+            display: none;
+        }
+        .options button {
+            background-color: #ff85a2;
+            color: white;
+            box-shadow: 0 4px 8px rgba(255, 133, 162, 0.4);
+        }
+        .options button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 12px rgba(255, 133, 162, 0.6);
+        }
+        #message {
+            font-size: 30px;
+            color: #ff4d4d;
+            margin-top: 20px;
+            font-weight: bold;
+        }
+
+        /* Estilos para las imágenes */
+        .image-container {
+            position: absolute;
+            top: 20%;
+            left: 10%;
+            right: 10%;
+            display: flex;
+            justify-content: space-between;
+            z-index: 0;
+        }
+        .image-container img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>¿Quieres ser mi San Valentín? 💖</h1>
+        <p class="hearts">❤️ ❤️ ❤️</p>
+        <div class="buttons">
+            <button id="yes" onclick="accept()">Sí</button>
+            <button id="no" onmouseover="moveButton()">No</button>
+        </div>
+        <div class="options" id="options">
+            <h2>¡Te amo! ❤️ Vamos a hacer uno de estos planes juntos:</h2>
+            <button onclick="chooseOption('Ir al cine')">🎬 Ir al cine</button>
+            <button onclick="chooseOption('Ir a merendar')">🍰 Ir a merendar</button>
+            <button onclick="chooseOption('Hacer un picnic')">🌿 Hacer un picnic</button>
+        </div>
+        <div id="message"></div>
+    </div>
+
+    <!-- Imágenes a los costados -->
+    <div class="image-container">
+        <img src="imagenes/fts (1).jpg" alt="Te">
+        <img src="imagenes/fts (2).jpg" alt="Amo">
+    </div>
+
+    <script>
+        function accept() {
+            document.getElementById("options").style.display = "block";
+            document.querySelector(".buttons").style.display = "none";
+        }
+
+        function moveButton() {
+            let button = document.getElementById("no");
+            let x = Math.random() * (window.innerWidth - 100);
+            let y = Math.random() * (window.innerHeight - 50);
+            button.style.left = `${x}px`;
+            button.style.top = `${y}px`;
+        }
+
+        function chooseOption(option) {
+            document.getElementById("message").innerText = `Te amo ❤️ Vamos a ${option} juntos! 💕`;
+            document.getElementById("options").style.display = "none"; // Ocultar las opciones después de elegir
+        }
+    </script>
+</body>
+</html>
