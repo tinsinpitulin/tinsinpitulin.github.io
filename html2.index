@@ -116,26 +116,9 @@
             color: white;
             text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
         }
-        /* Estilos para el índice */
-        #index {
-            position: absolute;
-            top: 10px;
-            left: 50%;
-            transform: translateX(-50%);
-            background-color: rgba(0, 0, 0, 0.5);
-            color: white;
-            padding: 10px 20px;
-            border-radius: 15px;
-            font-size: 18px;
-            cursor: pointer;
-        }
     </style>
 </head>
 <body>
-
-    <!-- Índice de navegación -->
-    <div id="index" onclick="scrollToSection()">Ir al contenido</div>
-
     <div class="container">
         <h1>¿Quieres ser mi San Valentín? 💖</h1>
         <p class="hearts">❤️ ❤️ ❤️</p>
@@ -174,18 +157,13 @@
             let button = document.getElementById("no");
             let x = Math.random() * (window.innerWidth - 100);
             let y = Math.random() * (window.innerHeight - 50);
-            button.style.left = `${x}px`;
-            button.style.top = `${y}px`;
+            button.style.left = ${x}px;
+            button.style.top = ${y}px;
         }
 
         function chooseOption(option) {
-            document.getElementById("message").innerText = `Te amo ❤️ Vamos a ${option} juntos! 💕`;
+            document.getElementById("message").innerText = Te amo ❤️ Vamos a ${option} juntos! 💕;
             document.getElementById("options").style.display = "none"; // Ocultar las opciones después de elegir
-        }
-
-        // Función para hacer scroll hacia el contenido
-        function scrollToSection() {
-            window.scrollTo({ top: document.querySelector('.container').offsetTop, behavior: 'smooth' });
         }
     </script>
 </body>
